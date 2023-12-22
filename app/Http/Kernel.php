@@ -64,6 +64,5 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verify.request.limit' => \App\Http\Middleware\VerifyRequestLimit::class,
-        'enter.request.limit' => \App\Http\Middleware\EnterRequestLimit::class,
     ];
 }

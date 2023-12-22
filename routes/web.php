@@ -20,11 +20,11 @@ Route::middleware('guest')->group(function (){
     Route::view('/login', 'auth.login')->name('auth.login');
     Route::view('/verify', 'auth.verify')->name('auth.verify');
 
-    Route::middleware('enter.request.limit')
+    Route::middleware('verify.request.limit:0,3,5')
         ->post('/register', [RegisterController::class, 'create'])->name('auth.register.create');
-    Route::middleware('enter.request.limit')
+    Route::middleware('verify.request.limit:0,3,5')
         ->post('/login', [LoginController::class, 'loginUser'])->name('auth.login.user');
-    Route::middleware('verify.request.limit')
+    Route::middleware('verify.request.limit:1')
         ->post('/verify', [VerifyController::class, 'verifyCode'])->name('auth.verify.code');
 });
 
